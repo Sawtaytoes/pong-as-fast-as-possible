@@ -1,0 +1,12 @@
+.Player {
+  height: 0;
+  position: fixed;
+}
+
+.Player_left {
+  left: 0;
+}
+
+.Player_right {
+  right: 0;
+}

@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import Ball from './Ball'
+import BallBoundary from './BallBoundary'
+import GameProvider from './GameProvider'
+import Paddle from './Paddle'
+import PaddleBoundary from './PaddleBoundary'
+import Player from './Player'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <GameProvider>
+    <BallBoundary>
+      <Ball />
+    </BallBoundary>
 
-export default App;
+    <Player playerAlignment="left">
+      <PaddleBoundary
+        downKeyName="KeyS"
+        upKeyName="KeyW"
+      >
+        <Paddle />
+      </PaddleBoundary>
+    </Player>
+
+    <Player playerAlignment="right">
+      <PaddleBoundary
+        downKeyName="ArrowDown"
+        upKeyName="ArrowUp"
+      >
+        <Paddle />
+      </PaddleBoundary>
+    </Player>
+  </GameProvider>
+)
+
+export default App
